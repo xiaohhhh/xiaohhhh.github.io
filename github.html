@@ -42,6 +42,18 @@ if (xmlhttp.readyState==4)
   }
 }
 </script>
+
+<script type="text/javascript" language="JavaScript">   
+                
+  //: 判断网页是否加载完成   
+  document.onreadystatechange = function () {   
+      if(document.readyState=="complete") {          
+          loadXMLDoc('https://api.github.com/orgs/jpush/repos');
+          }   
+      }   
+                
+</script>
+
 </head>
 
 <body>
@@ -58,8 +70,6 @@ if (xmlhttp.readyState==4)
 <p><b>Response:</b>
 <br /><span id="A3"></span>
 </p>
-
-<button onclick="loadXMLDoc('https://api.github.com/orgs/jpush/repos')">Get XML</button>
 
 </body>
 </html>
