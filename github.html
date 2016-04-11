@@ -11,6 +11,15 @@
     margin-right: auto;
     margin-left: auto;
   }
+  ul
+  {
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+    padding: 20px;
+    float: left;
+    background: gray;
+  }
   </style>
 
 <script type="text/javascript">
@@ -45,7 +54,8 @@ if (xmlhttp.readyState==4)
   if (xmlhttp.status==200)
     {// 200 = "OK"
     var content=document.getElementById("content");
-    content.innerHTML=xmlhttp.responseText;
+    //content.innerHTML=xmlhttp.responseText;
+
     var obj= eval ("(" + xmlhttp.responseText + ")");
 
     var repos=document.getElementById("repos");
@@ -104,10 +114,11 @@ if (xmlhttp.readyState==4)
 
   </div>
 
+  <div> 
   <p id="content">
   loading
   </p>
-
+  </div>
 </div>
 
 
