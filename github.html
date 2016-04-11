@@ -34,6 +34,9 @@ if (xmlhttp.readyState==4)
     document.getElementById('A1').innerHTML=xmlhttp.status;
     document.getElementById('A2').innerHTML=xmlhttp.statusText;
     document.getElementById('A3').innerHTML=xmlhttp.responseText;
+
+    var obj= eval ("(" + xmlhttp.responseText + ")");
+    alert(obj[0].id);
     }
   else
     {
@@ -41,6 +44,7 @@ if (xmlhttp.readyState==4)
     }
   }
 }
+
 </script>
 
 <script type="text/javascript" language="JavaScript">   
@@ -49,9 +53,8 @@ if (xmlhttp.readyState==4)
   document.onreadystatechange = function () {   
       if(document.readyState=="complete") {          
           loadXMLDoc('https://api.github.com/orgs/jpush/repos');
-          }   
       }   
-                
+  }                  
 </script>
 
 </head>
