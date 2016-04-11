@@ -53,7 +53,7 @@
       function addRepos(repos, page) {
         repos = repos || [];
         page = page || 1;
-        var uri = "https://api.github.com/orgs/twitter/repos?callback=?"
+        var uri = "https://api.github.com/orgs/jpush/repos?callback=?"
                 + "&per_page=100"
                 + "&page="+page;
         $.getJSON(uri, function (result) {
@@ -102,7 +102,7 @@
       function getNumMembers(page, numMembers) {
         var page = page || 1;
         var numMembers = numMembers || 0;
-        var membersUri = "https://api.github.com/orgs/twitter/members?callback=?"
+        var membersUri = "https://api.github.com/orgs/jpush/members?callback=?"
           + "&per_page=100"
           + "&page="+page;
         $.getJSON(membersUri, function (result) {
