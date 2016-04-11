@@ -34,6 +34,8 @@ if (xmlhttp.readyState==4)
     {// 200 = "OK"
     var obj= eval ("(" + xmlhttp.responseText + ")");
     var table=document.getElementById("table");
+    var p=document.getElementById("p");
+    p.innerHTML(xmlhttp.responseText);
     for (var i=0; i < obj.length;i++) {
           var tr=document.createElement("tr");
 
@@ -81,6 +83,10 @@ if (xmlhttp.readyState==4)
 <table id="table">
 
 </table>
+
+<p id="p">
+
+</p>
 
 </body>
 </html>
