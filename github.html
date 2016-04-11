@@ -32,10 +32,10 @@ if (xmlhttp.readyState==4)
   {// 4 = "loaded"
   if (xmlhttp.status==200)
     {// 200 = "OK"
+    var content=document.getElementById("content");
+    content.innerHTML=xmlhttp.responseText;
     var obj= eval ("(" + xmlhttp.responseText + ")");
     var table=document.getElementById("table");
-    var p=document.getElementById("p");
-    p.innerHTML(xmlhttp.responseText);
     for (var i=0; i < obj.length;i++) {
           var tr=document.createElement("tr");
 
@@ -53,6 +53,11 @@ if (xmlhttp.readyState==4)
           var description=document.createTextNode(obj[i].description);
           td_description.appendChild(description);       
           tr.appendChild(td_description);
+
+          var td_language=document.createElement("td");
+          var language=document.createTextNode(obj[i].language);
+          td_language.appendChild(language);       
+          tr.appendChild(td_language);
 
           table.appendChild(tr);
         };
@@ -84,8 +89,8 @@ if (xmlhttp.readyState==4)
 
 </table>
 
-<p id="p">
-
+<p id="content">
+loading
 </p>
 
 </body>
