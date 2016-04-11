@@ -69,6 +69,16 @@
     margin-top: 10px;
     width: 160px;
   }
+
+  .name
+  {
+    font-size: 18px;
+  }
+
+  .description
+  {
+    font-size: 12px;
+  }
   </style>
 
 <script type="text/javascript">
@@ -112,23 +122,31 @@ if (xmlhttp.readyState==4)
           var ul=document.createElement("ul");
 
           var li_name=document.createElement("li");
-          var name=document.createTextNode(obj[i].name);
-          li_name.appendChild(name);
+          var li_name_a=document.createElement("a");
+          var li_name_a=document.createTextNode(obj[i].name);
+          li_name_a.setAttribute("href", obj[i].html_url);    
+          li_name.appendChild(li_name_a);
+          li_name.setAttribute("class", "name"); 
           ul.appendChild(li_name);
+          
+  
 
           var li_html_url=document.createElement("li");
           var html_url=document.createTextNode(obj[i].html_url);
           li_html_url.appendChild(html_url);
+          li_html_url.setAttribute("class", "html_url");  
           ul.appendChild(li_html_url);
 
           var li_description=document.createElement("li");
           var description=document.createTextNode(obj[i].description);
-          li_description.appendChild(description);       
+          li_description.appendChild(description); 
+          li_description.setAttribute("class", "description");        
           ul.appendChild(li_description);
 
           var li_language=document.createElement("li");
           var language=document.createTextNode(obj[i].language);
-          li_language.appendChild(language);       
+          li_language.appendChild(language);  
+          li_language.setAttribute("class", "language");     
           ul.appendChild(li_language);
 
           repos.appendChild(ul);
@@ -183,5 +201,6 @@ if (xmlhttp.readyState==4)
 </div>
 </div>
 
+<a href=""></a>
 </body>
 </html>
