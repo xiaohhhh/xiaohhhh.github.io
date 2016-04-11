@@ -39,7 +39,7 @@
 
   #wrap
   {
-    height: 3000px;
+    height: 3600px;
     background-size: 100% 100%;
     background-image: url(img/img_repos.jpg);
     
@@ -55,29 +55,30 @@
 
   ul
   {
-    width: 200px;
+    width: 280px;
     height: 300px;
     margin: 20px;
     padding: 20px;
     float: left;
-    background: #999999;
+    background: #EEEEEE;
     list-style-type: none;
   }
 
   li
   {
     margin-top: 10px;
-    width: 160px;
+    width: 240px;
   }
 
   .name
   {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
   }
 
   .description
   {
-    font-size: 12px;
+    font-size: 16px;
   }
   </style>
 
@@ -119,24 +120,33 @@ if (xmlhttp.readyState==4)
 
     var repos=document.getElementById("repos");
     for (var i=0; i < obj.length;i++) {
-          var ul=document.createElement("ul");
-
-          var li_name=document.createElement("li");
-          var li_name_a=document.createElement("a");
-          var li_name_a=document.createTextNode(obj[i].name);
-          li_name_a.setAttribute("href", obj[i].html_url);    
-          li_name.appendChild(li_name_a);
+          var ul=document.createElement("ul"); 
+/*
+          var li_name=document.createElement("li");  
+          var name=document.createTextNode(obj[i].name);
+          li_name.appendChild(name);
           li_name.setAttribute("class", "name"); 
           ul.appendChild(li_name);
-          
-  
+*/
 
+          var li_name_a=document.createElement("a");
+          li_name_a.setAttribute("href", obj[i].html_url); 
+
+          var name_a=document.createTextNode(obj[i].name);
+          li_name_a.appendChild(name_a);
+
+          var li_name=document.createElement("li");
+          li_name.appendChild(li_name_a);
+
+          li_name.setAttribute("class", "name"); 
+          ul.appendChild(li_name);
+/*
           var li_html_url=document.createElement("li");
           var html_url=document.createTextNode(obj[i].html_url);
           li_html_url.appendChild(html_url);
           li_html_url.setAttribute("class", "html_url");  
           ul.appendChild(li_html_url);
-
+*/
           var li_description=document.createElement("li");
           var description=document.createTextNode(obj[i].description);
           li_description.appendChild(description); 
