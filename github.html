@@ -5,20 +5,65 @@
   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>
   <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
   <style type="text/css">
+  #header
+  {
+    background-color: #444;
+    height: 180px;
+  }
+  #logo
+  {
+    width: 960px;
+    padding-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 20px;
+  }
+
+  #open_source
+  {
+    font-size: 50px;
+    color: #FFFFFF;
+    padding-left: 20px;
+  }
+
+  #description
+  {
+    height: 200px;
+  }
+  #description img
+  {
+    height: 200px;
+    width: 100%
+  }
+
+  #wrap
+  {
+    width: 100%;
+    height: 100%;
+    background-image:url(img/img_repos.jpg);
+    background-size:100%;
+  }
+
   #wrapper
   {
-    width: 980px;
+    width: 960px;
     margin-right: auto;
     margin-left: auto;
   }
+
   ul
   {
     width: 200px;
-    height: 250px;
+    height: 300px;
     margin: 20px;
     padding: 20px;
     float: left;
-    background: gray;
+    background: #999999;
+    list-style-type: none;
+  }
+  li
+  {
+    margin-top: 10px;
   }
   </style>
 
@@ -62,10 +107,10 @@ if (xmlhttp.readyState==4)
     for (var i=0; i < obj.length;i++) {
           var ul=document.createElement("ul");
 
-          var li_id=document.createElement("li");
-          var id=document.createTextNode(obj[i].id);
-          li_id.appendChild(id);
-          ul.appendChild(li_id);
+          var li_name=document.createElement("li");
+          var name=document.createTextNode(obj[i].name);
+          li_name.appendChild(name);
+          ul.appendChild(li_name);
 
           var li_html_url=document.createElement("li");
           var html_url=document.createTextNode(obj[i].html_url);
@@ -106,8 +151,20 @@ if (xmlhttp.readyState==4)
 </head>
 
 <body>
-<h2>JPush Open Source</h2>
+<div id="header">
+<div id="logo">
+<a href=""><img src="img/logo.png"></a>
+<div id="open_source">
+<p>open source</p>
+</div>
+</div>
+</div>
 
+<div id="description">
+<img src="img/img_description.jpg">
+</div>
+
+<div id="wrap">
 <div id="wrapper">
 
   <div id="repos">
@@ -120,7 +177,7 @@ if (xmlhttp.readyState==4)
   </p>
   </div>
 </div>
-
+</div>
 
 </body>
 </html>
