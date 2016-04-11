@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>JPush Open Source</title>
 <script type="text/javascript">
 var xmlhttp;
 function loadXMLDoc(url)
@@ -45,7 +46,7 @@ if (xmlhttp.readyState==4)
           var html_url=document.createTextNode(obj[i].html_url);
           td_html_url.appendChild(html_url);
           tr.appendChild(td_html_url);
-          
+
           var td_description=document.createElement("td");
           var description=document.createTextNode(obj[i].description);
           td_description.appendChild(description);       
@@ -75,12 +76,10 @@ if (xmlhttp.readyState==4)
 </head>
 
 <body>
-<h2>Using the HttpRequest Object</h2>
+<h2>JPush Open Source</h2>
 
 <table id="table">
-<tr>
 
-</tr>
 </table>
 
 </body>
