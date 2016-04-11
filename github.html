@@ -31,12 +31,28 @@ if (xmlhttp.readyState==4)
   {// 4 = "loaded"
   if (xmlhttp.status==200)
     {// 200 = "OK"
-    document.getElementById('A1').innerHTML=xmlhttp.status;
-    document.getElementById('A2').innerHTML=xmlhttp.statusText;
-    document.getElementById('A3').innerHTML=xmlhttp.responseText;
-
     var obj= eval ("(" + xmlhttp.responseText + ")");
-    alert(obj[0].id);
+    var table=document.getElementById("table");
+    for (var i=0; i < obj.length;i++) {
+          var tr=document.createElement("tr");
+
+          var td_id=document.createElement("td");
+          var id=document.createTextNode(obj[i].id);
+          td_id.appendChild(id);
+          tr.appendChild(td_id);
+
+          var td_html_url=document.createElement("td");
+          var html_url=document.createTextNode(obj[i].html_url);
+          td_html_url.appendChild(html_url);
+          tr.appendChild(td_html_url);
+          
+          var td_description=document.createElement("td");
+          var description=document.createTextNode(obj[i].description);
+          td_description.appendChild(description);       
+          tr.appendChild(td_description);
+
+          table.appendChild(tr);
+        };
     }
   else
     {
@@ -47,8 +63,7 @@ if (xmlhttp.readyState==4)
 
 </script>
 
-<script type="text/javascript" language="JavaScript">   
-                
+<script type="text/javascript" language="JavaScript">               
   //: 判断网页是否加载完成   
   document.onreadystatechange = function () {   
       if(document.readyState=="complete") {          
@@ -62,17 +77,11 @@ if (xmlhttp.readyState==4)
 <body>
 <h2>Using the HttpRequest Object</h2>
 
-<p><b>Status:</b>
-<span id="A1"></span>
-</p>
+<table id="table">
+<tr>
 
-<p><b>Status text:</b>
-<span id="A2"></span>
-</p>
-
-<p><b>Response:</b>
-<br /><span id="A3"></span>
-</p>
+</tr>
+</table>
 
 </body>
 </html>
