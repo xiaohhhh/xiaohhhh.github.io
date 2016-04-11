@@ -1,6 +1,18 @@
 <html>
 <head>
   <title>JPush Open Source</title>
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+  <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>
+  <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+  #wrapper
+  {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  </style>
+
 <script type="text/javascript">
 var xmlhttp;
 function loadXMLDoc(url)
@@ -35,31 +47,32 @@ if (xmlhttp.readyState==4)
     var content=document.getElementById("content");
     content.innerHTML=xmlhttp.responseText;
     var obj= eval ("(" + xmlhttp.responseText + ")");
-    var table=document.getElementById("table");
+
+    var repos=document.getElementById("repos");
     for (var i=0; i < obj.length;i++) {
-          var tr=document.createElement("tr");
+          var ul=document.createElement("ul");
 
-          var td_id=document.createElement("td");
+          var li_id=document.createElement("li");
           var id=document.createTextNode(obj[i].id);
-          td_id.appendChild(id);
-          tr.appendChild(td_id);
+          li_id.appendChild(id);
+          ul.appendChild(li_id);
 
-          var td_html_url=document.createElement("td");
+          var li_html_url=document.createElement("li");
           var html_url=document.createTextNode(obj[i].html_url);
-          td_html_url.appendChild(html_url);
-          tr.appendChild(td_html_url);
+          li_html_url.appendChild(html_url);
+          ul.appendChild(li_html_url);
 
-          var td_description=document.createElement("td");
+          var li_description=document.createElement("li");
           var description=document.createTextNode(obj[i].description);
-          td_description.appendChild(description);       
-          tr.appendChild(td_description);
+          li_description.appendChild(description);       
+          ul.appendChild(li_description);
 
-          var td_language=document.createElement("td");
+          var li_language=document.createElement("li");
           var language=document.createTextNode(obj[i].language);
-          td_language.appendChild(language);       
-          tr.appendChild(td_language);
+          li_language.appendChild(language);       
+          ul.appendChild(li_language);
 
-          table.appendChild(tr);
+          repos.appendChild(ul);
         };
     }
   else
@@ -85,13 +98,18 @@ if (xmlhttp.readyState==4)
 <body>
 <h2>JPush Open Source</h2>
 
-<table id="table">
+<div id="wrapper">
 
-</table>
+  <div id="repos">
 
-<p id="content">
-loading
-</p>
+  </div>
+
+  <p id="content">
+  loading
+  </p>
+
+</div>
+
 
 </body>
 </html>
